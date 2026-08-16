@@ -161,6 +161,7 @@ export default function MasterPage() {
             <motion.button 
               whileHover={{ scale: 1.05, backgroundColor: "rgba(74, 55, 40, 0.1)" }}
               whileTap={{ scale: 0.98 }}
+              onClick={() => document.getElementById('library')?.scrollIntoView({ behavior: 'smooth' })}
               className="border-2 border-coffee text-coffee px-10 py-4 rounded-2xl text-lg font-bold flex items-center justify-center gap-2 transition-all duration-300"
             >
               Learn More <ChevronRight size={22} />
@@ -187,15 +188,15 @@ export default function MasterPage() {
                 />
                 
                 <motion.div 
-                  className="w-64 rounded-[3rem] border-8 border-coffee shadow-2xl relative z-10 transition-all duration-300 overflow-hidden"
+                  className="w-64 relative rounded-[3rem] border-8 border-coffee shadow-2xl relative z-10 transition-all duration-300 overflow-hidden"
                   whileHover={{ scale: 1.02, rotateZ: 2 }}
                 >
                   <Image 
                     src="/icon.jpeg" 
                     alt="App Icon"
-                    fill
-                    sizes="16rem"
-                    className="object-cover"
+                    width={256}
+                    height={256}
+                    className="object-cover rounded-[3rem]"
                   />
                 </motion.div>
               </>
