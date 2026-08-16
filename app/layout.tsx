@@ -15,11 +15,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "ILM HUB",
+    url: "https://ilmhub-zeta.vercel.app/",
   },
   twitter: {
     card: "summary_large_image",
     title: "ILM HUB - Digital Islamic Library",
     description: "Access thousands of Islamic texts, books, and resources. Read anywhere, anytime, offline.",
+    site: "@ilmhub",
+    creator: "@ilmhub",
   },
   icons: {
     icon: "/favicon.webp",

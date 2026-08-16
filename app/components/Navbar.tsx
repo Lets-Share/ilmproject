@@ -4,6 +4,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function Navbar() {
+  const handleGetApk = () => {
+    const installSection = document.getElementById('install');
+    if (installSection) {
+      installSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <nav className="fixed top-0 w-full bg-parchment/95 backdrop-blur-xl z-50 border-b border-coffee/10 shadow-lg">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -42,14 +49,14 @@ export default function Navbar() {
           ))}
         </div>
 
-        <motion.a
-          href="#install"
+        <motion.button
+          onClick={handleGetApk}
           whileHover={{ scale: 1.08, boxShadow: "0 10px 25px rgba(217, 119, 6, 0.3)" }}
           whileTap={{ scale: 0.95 }}
           className="bg-coffee text-white px-6 py-2 rounded-xl font-bold text-sm shadow-lg transition-all"
         >
           Get APK
-        </motion.a>
+        </motion.button>
       </div>
     </nav>
   );

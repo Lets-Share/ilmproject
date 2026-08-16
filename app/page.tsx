@@ -8,34 +8,16 @@ export default function MasterPage() {
   const [loading, setLoading] = useState(true);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [showReadModal, setShowReadModal] = useState(false);
-  const [adReady, setAdReady] = useState(false);
-  const [downloading, setDownloading] = useState(false);
 
   useEffect(() => { 
     setTimeout(() => setLoading(false), 1500); 
   }, []);
 
-  useEffect(() => {
-    const checkAds = setInterval(() => {
-      if (typeof window !== 'undefined' && window.AdstreamStarted) {
-        setAdReady(true);
-        clearInterval(checkAds);
-      }
-    }, 500);
-    return () => clearInterval(checkAds);
-  }, []);
-
   const handleDownload = () => {
-    if (!adReady) {
-      setDownloading(true);
-      setTimeout(() => {
-        setAdReady(true);
-        setDownloading(false);
-        triggerDownload();
-      }, 1500);
-      return;
+    const installSection = document.getElementById('install');
+    if (installSection) {
+      installSection.scrollIntoView({ behavior: 'smooth' });
     }
-    triggerDownload();
   };
 
   const triggerDownload = () => {
@@ -143,19 +125,9 @@ export default function MasterPage() {
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(217, 119, 6, 0.3)" }}
               whileTap={{ scale: 0.98 }}
               onClick={handleDownload}
-              disabled={downloading}
-              className="bg-terracotta text-white px-10 py-4 rounded-2xl text-lg font-bold flex items-center justify-center gap-3 shadow-lg hover:shadow-2xl transition-all duration-300 disabled:opacity-70 disabled:cursor-wait"
+              className="bg-terracotta text-white px-10 py-4 rounded-2xl text-lg font-bold flex items-center justify-center gap-3 shadow-lg hover:shadow-2xl transition-all duration-300"
             >
-              {downloading ? (
-                <>
-                  <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity }} className="w-5 h-5 border-2 border-white border-t-transparent rounded-full" />
-                  Preparing...
-                </>
-              ) : (
-                <>
-                  <Download size={22} /> Download APK
-                </>
-              )}
+              <Download size={22} /> Download APK
             </motion.button>
             
             <motion.button 
@@ -215,11 +187,18 @@ export default function MasterPage() {
       >
         <div className="border-2 border-coffee/20 rounded-2xl p-4 sm:p-6 bg-white/50 backdrop-blur-md text-center">
           <p className="text-xs text-coffee/60 mb-4 font-semibold uppercase">Advertisement</p>
-          <div id="ad-slot-1" className="w-full max-w-full overflow-hidden min-h-[180px] sm:min-h-[250px] md:min-h-[300px]">
-            <div className="w-full flex items-center justify-center bg-terracotta/5 rounded-xl text-coffee/60 text-sm italic" style={{ minHeight: '180px' }}>
-              Ad Slot 1 - Replace with your Adsterra code
-            </div>
-          </div>
+          <div id="ad-slot-1" className="w-full max-w-full overflow-hidden min-h-[180px] sm:min-h-[250px] md:min-h-[300px]" dangerouslySetInnerHTML={{ __html: `
+            <script>
+              atOptions = {
+                'key' : 'f755789ba0f09e4bcc21103d2db606f4',
+                'format' : 'iframe',
+                'height' : 90,
+                'width' : 728,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/f755789ba0f09e4bcc21103d2db606f4/invoke.js"></script>
+          `}} />
         </div>
       </motion.div>
 
@@ -322,11 +301,18 @@ export default function MasterPage() {
       >
         <div className="border-2 border-coffee/20 rounded-2xl p-4 sm:p-6 bg-white/50 backdrop-blur-md text-center">
           <p className="text-xs text-coffee/60 mb-4 font-semibold uppercase">Advertisement</p>
-          <div id="ad-slot-2" className="w-full max-w-full overflow-hidden min-h-[180px] sm:min-h-[200px] md:min-h-[250px]">
-            <div className="w-full flex items-center justify-center bg-terracotta/5 rounded-xl text-coffee/60 text-sm italic" style={{ minHeight: '180px' }}>
-              Ad Slot 2 - Replace with your Adsterra code
-            </div>
-          </div>
+          <div id="ad-slot-2" className="w-full max-w-full overflow-hidden min-h-[180px] sm:min-h-[200px] md:min-h-[250px]" dangerouslySetInnerHTML={{ __html: `
+            <script>
+              atOptions = {
+                'key' : '5e8fe976a5393bcaf7df46341156bd41',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/5e8fe976a5393bcaf7df46341156bd41/invoke.js"></script>
+          `}} />
         </div>
       </motion.div>
 
@@ -374,6 +360,24 @@ export default function MasterPage() {
             );
           })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="mt-12 md:mt-16 text-center"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(217, 119, 6, 0.3)" }}
+            whileTap={{ scale: 0.98 }}
+            onClick={triggerDownload}
+            className="bg-terracotta text-white px-12 py-4 rounded-2xl text-lg font-bold flex items-center justify-center gap-3 shadow-lg hover:shadow-2xl transition-all duration-300 mx-auto"
+          >
+            <Download size={24} /> Download APK Now
+          </motion.button>
+          <p className="text-xs opacity-60 text-coffee mt-4">APK v2.4.1 · 45MB · Android 7.0+</p>
+        </motion.div>
       </section>
 
       {/* --- AD SLOT 3: Horizontal Ad (Between Installation & FAQ) --- */}
@@ -386,11 +390,18 @@ export default function MasterPage() {
       >
         <div className="border-2 border-coffee/20 rounded-2xl p-4 sm:p-6 bg-white/50 backdrop-blur-md text-center">
           <p className="text-xs text-coffee/60 mb-4 font-semibold uppercase">Advertisement</p>
-          <div id="ad-slot-3" className="w-full max-w-full overflow-hidden min-h-[180px] sm:min-h-[220px] md:min-h-[280px]">
-            <div className="w-full flex items-center justify-center bg-terracotta/5 rounded-xl text-coffee/60 text-sm italic" style={{ minHeight: '180px' }}>
-              Ad Slot 3 - Replace with your Adsterra code
-            </div>
-          </div>
+          <div id="ad-slot-3" className="w-full max-w-full overflow-hidden min-h-[180px] sm:min-h-[220px] md:min-h-[280px]" dangerouslySetInnerHTML={{ __html: `
+            <script>
+              atOptions = {
+                'key' : '5e8fe976a5393bcaf7df46341156bd41',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/5e8fe976a5393bcaf7df46341156bd41/invoke.js"></script>
+          `}} />
         </div>
       </motion.div>
 
@@ -476,11 +487,18 @@ export default function MasterPage() {
       >
         <div className="border-2 border-coffee/20 rounded-2xl p-4 sm:p-6 bg-white/50 backdrop-blur-md text-center">
           <p className="text-xs text-coffee/60 mb-4 font-semibold uppercase">Advertisement</p>
-          <div id="ad-slot-4" className="w-full max-w-full overflow-hidden min-h-[180px] sm:min-h-[250px] md:min-h-[300px]">
-            <div className="w-full flex items-center justify-center bg-terracotta/5 rounded-xl text-coffee/60 text-sm italic" style={{ minHeight: '180px' }}>
-              Ad Slot 4 - Replace with your Adsterra code
-            </div>
-          </div>
+          <div id="ad-slot-4" className="w-full max-w-full overflow-hidden min-h-[180px] sm:min-h-[250px] md:min-h-[300px]" dangerouslySetInnerHTML={{ __html: `
+            <script>
+              atOptions = {
+                'key' : 'f755789ba0f09e4bcc21103d2db606f4',
+                'format' : 'iframe',
+                'height' : 90,
+                'width' : 728,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/f755789ba0f09e4bcc21103d2db606f4/invoke.js"></script>
+          `}} />
         </div>
       </motion.div>
 

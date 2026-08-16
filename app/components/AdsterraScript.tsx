@@ -14,7 +14,8 @@ export default function AdsterraScript() {
             const script = document.createElement('script');
             script.type = 'text/javascript';
             script.text = `
-              var ad_placement_id = "YOUR_AD_PLACEMENT_ID_HERE";
+              var ad_placement_id = "30773081";
+              var ad_placement_id_300x250 = "30773082";
             `;
             document.body.appendChild(script);
           }
