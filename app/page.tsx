@@ -187,18 +187,32 @@ export default function MasterPage() {
       >
         <div className="border-2 border-coffee/20 rounded-2xl p-4 sm:p-6 bg-white/50 backdrop-blur-md text-center">
           <p className="text-xs text-coffee/60 mb-4 font-semibold uppercase">Advertisement</p>
-          <div id="ad-slot-1" className="w-full max-w-full overflow-hidden min-h-[180px] sm:min-h-[250px] md:min-h-[300px]" dangerouslySetInnerHTML={{ __html: `
-            <script>
-              atOptions = {
-                'key' : 'f755789ba0f09e4bcc21103d2db606f4',
-                'format' : 'iframe',
-                'height' : 90,
-                'width' : 728,
-                'params' : {}
-              };
-            </script>
-            <script src="https://www.highperformanceformat.com/f755789ba0f09e4bcc21103d2db606f4/invoke.js"></script>
-          `}} />
+          <div className="flex flex-wrap justify-center gap-4">
+            <div id="ad-slot-1" className="overflow-hidden" dangerouslySetInnerHTML={{ __html: `
+              <script>
+                atOptions = {
+                  'key' : 'f755789ba0f09e4bcc21103d2db606f4',
+                  'format' : 'iframe',
+                  'height' : 90,
+                  'width' : 728,
+                  'params' : {}
+                };
+              </script>
+              <script src="https://www.highperformanceformat.com/f755789ba0f09e4bcc21103d2db606f4/invoke.js"></script>
+            `}} />
+            <div id="ad-slot-1b" className="overflow-hidden" dangerouslySetInnerHTML={{ __html: `
+              <script>
+                atOptions = {
+                  'key' : 'e824e21a1235373ca680523c34be1c76',
+                  'format' : 'iframe',
+                  'height' : 60,
+                  'width' : 468,
+                  'params' : {}
+                };
+              </script>
+              <script src="https://www.highperformanceformat.com/e824e21a1235373ca680523c34be1c76/invoke.js"></script>
+            `}} />
+          </div>
         </div>
       </motion.div>
 
@@ -301,18 +315,22 @@ export default function MasterPage() {
       >
         <div className="border-2 border-coffee/20 rounded-2xl p-4 sm:p-6 bg-white/50 backdrop-blur-md text-center">
           <p className="text-xs text-coffee/60 mb-4 font-semibold uppercase">Advertisement</p>
-          <div id="ad-slot-2" className="w-full max-w-full overflow-hidden min-h-[180px] sm:min-h-[200px] md:min-h-[250px]" dangerouslySetInnerHTML={{ __html: `
-            <script>
-              atOptions = {
-                'key' : '5e8fe976a5393bcaf7df46341156bd41',
-                'format' : 'iframe',
-                'height' : 250,
-                'width' : 300,
-                'params' : {}
-              };
-            </script>
-            <script src="https://www.highperformanceformat.com/5e8fe976a5393bcaf7df46341156bd41/invoke.js"></script>
-          `}} />
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {[1, 2, 3, 4].map((num) => (
+              <div key={num} id={`ad-slot-2-${num}`} className="overflow-hidden" dangerouslySetInnerHTML={{ __html: `
+                <script>
+                  atOptions = {
+                    'key' : '5e8fe976a5393bcaf7df46341156bd41',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highperformanceformat.com/5e8fe976a5393bcaf7df46341156bd41/invoke.js"></script>
+              `}} />
+            ))}
+          </div>
         </div>
       </motion.div>
 
@@ -390,18 +408,22 @@ export default function MasterPage() {
       >
         <div className="border-2 border-coffee/20 rounded-2xl p-4 sm:p-6 bg-white/50 backdrop-blur-md text-center">
           <p className="text-xs text-coffee/60 mb-4 font-semibold uppercase">Advertisement</p>
-          <div id="ad-slot-3" className="w-full max-w-full overflow-hidden min-h-[180px] sm:min-h-[220px] md:min-h-[280px]" dangerouslySetInnerHTML={{ __html: `
-            <script>
-              atOptions = {
-                'key' : '5e8fe976a5393bcaf7df46341156bd41',
-                'format' : 'iframe',
-                'height' : 250,
-                'width' : 300,
-                'params' : {}
-              };
-            </script>
-            <script src="https://www.highperformanceformat.com/5e8fe976a5393bcaf7df46341156bd41/invoke.js"></script>
-          `}} />
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {[1, 2, 3, 4].map((num) => (
+              <div key={num} id={`ad-slot-3-${num}`} className="overflow-hidden" dangerouslySetInnerHTML={{ __html: `
+                <script>
+                  atOptions = {
+                    'key' : '5e8fe976a5393bcaf7df46341156bd41',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highperformanceformat.com/5e8fe976a5393bcaf7df46341156bd41/invoke.js"></script>
+              `}} />
+            ))}
+          </div>
         </div>
       </motion.div>
 
@@ -487,18 +509,32 @@ export default function MasterPage() {
       >
         <div className="border-2 border-coffee/20 rounded-2xl p-4 sm:p-6 bg-white/50 backdrop-blur-md text-center">
           <p className="text-xs text-coffee/60 mb-4 font-semibold uppercase">Advertisement</p>
-          <div id="ad-slot-4" className="w-full max-w-full overflow-hidden min-h-[180px] sm:min-h-[250px] md:min-h-[300px]" dangerouslySetInnerHTML={{ __html: `
-            <script>
-              atOptions = {
-                'key' : 'f755789ba0f09e4bcc21103d2db606f4',
-                'format' : 'iframe',
-                'height' : 90,
-                'width' : 728,
-                'params' : {}
-              };
-            </script>
-            <script src="https://www.highperformanceformat.com/f755789ba0f09e4bcc21103d2db606f4/invoke.js"></script>
-          `}} />
+          <div className="flex flex-wrap justify-center gap-4">
+            <div id="ad-slot-4" className="overflow-hidden" dangerouslySetInnerHTML={{ __html: `
+              <script>
+                atOptions = {
+                  'key' : 'f755789ba0f09e4bcc21103d2db606f4',
+                  'format' : 'iframe',
+                  'height' : 90,
+                  'width' : 728,
+                  'params' : {}
+                };
+              </script>
+              <script src="https://www.highperformanceformat.com/f755789ba0f09e4bcc21103d2db606f4/invoke.js"></script>
+            `}} />
+            <div id="ad-slot-4b" className="overflow-hidden" dangerouslySetInnerHTML={{ __html: `
+              <script>
+                atOptions = {
+                  'key' : 'e824e21a1235373ca680523c34be1c76',
+                  'format' : 'iframe',
+                  'height' : 60,
+                  'width' : 468,
+                  'params' : {}
+                };
+              </script>
+              <script src="https://www.highperformanceformat.com/e824e21a1235373ca680523c34be1c76/invoke.js"></script>
+            `}} />
+          </div>
         </div>
       </motion.div>
 
@@ -668,6 +704,35 @@ export default function MasterPage() {
         </motion.div>
       )}
 
+      {/* --- AD SLOT 5: Medium Rectangle (After Contact) --- */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 my-6 sm:my-8"
+      >
+        <div className="border-2 border-coffee/20 rounded-2xl p-4 sm:p-6 bg-white/50 backdrop-blur-md text-center">
+          <p className="text-xs text-coffee/60 mb-4 font-semibold uppercase">Advertisement</p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {[1, 2, 3, 4].map((num) => (
+              <div key={num} id={`ad-slot-5-${num}`} className="overflow-hidden" dangerouslySetInnerHTML={{ __html: `
+                <script>
+                  atOptions = {
+                    'key' : '5e8fe976a5393bcaf7df46341156bd41',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highperformanceformat.com/5e8fe976a5393bcaf7df46341156bd41/invoke.js"></script>
+              `}} />
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
       {/* --- FOOTER --- */}
       <motion.footer 
         initial={{ opacity: 0 }}
@@ -696,6 +761,20 @@ export default function MasterPage() {
               </motion.a>
             ))}
           </div>
+
+          {/* --- AD SLOT 6: Leaderboard (Footer Bottom) --- */}
+          <div id="ad-slot-6" className="w-full max-w-full overflow-hidden min-h-[100px] sm:min-h-[100px] md:min-h-[100px] mt-8" dangerouslySetInnerHTML={{ __html: `
+            <script>
+              atOptions = {
+                'key' : 'f755789ba0f09e4bcc21103d2db606f4',
+                'format' : 'iframe',
+                'height' : 90,
+                'width' : 728,
+                'params' : {}
+              };
+            </script>
+            <script src="https://www.highperformanceformat.com/f755789ba0f09e4bcc21103d2db606f4/invoke.js"></script>
+          `}} />
         </div>
       </motion.footer>
     </main>
