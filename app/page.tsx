@@ -21,7 +21,7 @@ export default function MasterPage() {
   };
 
   const triggerDownload = () => {
-    const apkUrl = "https://github.com/Lets-Share/ilmhub-releases/releases/download/V1.0/ILM_HUB.apk";
+    const apkUrl = "https://github.com/Lets-Share/ilmhub-releases/releases/download/V2.0/ILM_HUB.apk";
     window.open(apkUrl, '_blank', 'noopener,noreferrer');
   };
 
@@ -394,7 +394,7 @@ export default function MasterPage() {
           >
             <Download size={24} /> Download APK Now
           </motion.button>
-          <p className="text-xs opacity-60 text-coffee mt-4">APK v2.4.1 · 45MB · Android 7.0+</p>
+          <p className="text-xs opacity-60 text-coffee mt-4">APK v2.0 · 70MB · Android 7.0+</p>
         </motion.div>
       </section>
 
