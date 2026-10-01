@@ -21,7 +21,7 @@ export default function MasterPage() {
   };
 
   const triggerDownload = () => {
-    const apkUrl = "https://github.com/Lets-Share/ilmhub-releases/releases/download/V2.0/ILM_HUB.apk";
+    const apkUrl = "https://github.com/Lets-Share/ilmhub-releases/releases/download/V3.0/ILM_HUB.apk";
     window.open(apkUrl, '_blank', 'noopener,noreferrer');
   };
 
